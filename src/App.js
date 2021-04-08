@@ -1,36 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Counter from './components/Counter'
 import { Button } from '@material-ui/core';
-class App extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      count: 0
-    };
-  }
+const App = (props) => {
+  /*
+   * count is our state variable
+   * count will have a default state of 0
+   * count will be updated using the setCount function
+   */
+  const [count, setCount] = useState(0);
 
-  incrementer() {
-    let currentCount = this.state.count;
-    currentCount++;
+  const incrementer = () => setCount(count + 1)
 
-    this.setState(state => ({
-      count: currentCount
-    }));
-  }
-
-  render() {
-    return (
-      <>
-        <div>
-          Hello {this.props.name}
-        </div>
-        <Counter count={ this.state.count }/>
-        <Button onClick={() => { this.incrementer() }} >Primary</Button>
-      </>
-    );
-  }
+  return (
+    <>
+      <div>
+        Hello {props.name}
+      </div>
+      <Counter count={ count }/>
+      <Button onClick={ incrementer }>Increment</Button>
+    </>
+  );
 }
 
 export default App;
