@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './App.css';
 import Counter from './components/Counter'
 import { Button } from '@material-ui/core';
+import { store } from './libs/store';
 
 const App = (props) => {
   /*
@@ -12,6 +13,10 @@ const App = (props) => {
   const [count, setCount] = useState(0);
 
   const incrementer = () => setCount(count + 1)
+
+  const globalState = useContext(store);
+
+  console.log("mmi:", globalState);
 
   return (
     <>
