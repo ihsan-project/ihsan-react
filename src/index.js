@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { StateProvider } from './libs/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App name="poop"/>
+    <StateProvider>
+      <App name="poop"/>
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

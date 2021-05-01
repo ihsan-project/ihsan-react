@@ -11,13 +11,13 @@ const StateProvider = ( { children } ) => {
     switch(action.type) {
       case 'displayLoading':
         return {
+            ...state,
             isLoading: true,
-            ...state
         };
       case 'hideLoading':
         return {
-            isLoading: false,
-            ...state
+            ...state,
+            isLoading: false
         };
       default:
         return state;

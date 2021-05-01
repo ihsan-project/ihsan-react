@@ -15,8 +15,7 @@ const App = (props) => {
   const incrementer = () => setCount(count + 1)
 
   const globalState = useContext(store);
-
-  console.log("mmi:", globalState);
+  const { dispatch } = globalState;
 
   return (
     <>
@@ -24,7 +23,10 @@ const App = (props) => {
         Hello {props.name}
       </div>
       <Counter count={ count }/>
-      <Button onClick={ incrementer }>Increment</Button>
+      <Button onClick={ () => {
+        incrementer();
+        dispatch({ type: 'displayLoading' });
+      } }>Increment</Button>
     </>
   );
 }
