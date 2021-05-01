@@ -8,7 +8,7 @@ import { StateProvider } from './libs/store';
 ReactDOM.render(
   <React.StrictMode>
     <StateProvider>
-      <App name="poop"/>
+      <App />
     </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
