@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react';
+import PropTypes from 'prop-types';
 
 const initialState = {
     isLoading: false,
@@ -7,7 +8,7 @@ const store = createContext(initialState);
 const { Provider } = store;
 
 const StateProvider = ( { children } ) => {
-  const [state, dispatch] = useReducer((state, action) => {
+  const [context, dispatch] = useReducer((state, action) => {
     switch(action.type) {
       case 'displayLoading':
         return {
@@ -24,7 +25,14 @@ const StateProvider = ( { children } ) => {
     };
   }, initialState);
 
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
+  return <Provider value={{ context, dispatch }}>{children}</Provider>;
+};
+
+StateProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 export { store, StateProvider }
