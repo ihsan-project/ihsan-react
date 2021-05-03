@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './App.css';
-import Counter from './components/Counter'
+
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import { Button } from '@material-ui/core';
 
-const App = (props) => {
-  /*
-   * count is our state variable
-   * count will have a default state of 0
-   * count will be updated using the setCount function
-   */
-  const [count, setCount] = useState(0);
+import Login from './containers/Login'
 
-  const incrementer = () => setCount(count + 1)
+import { store } from './libs/store';
+
+const App = () => {
+  const globalState = useContext(store);
 
   return (
     <>
-      <div>
-        Hello {props.name}
-      </div>
-      <Counter count={ count }/>
-      <Button onClick={ incrementer }>Increment</Button>
+      <AppBar position="static">
+        <Toolbar>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+      <Login />
     </>
   );
 }
