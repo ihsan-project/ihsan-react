@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from '../containers/App';
+import Counter from './Counter';
 
 describe('Tests', () => {
   it('renders learn react link', () => {
-    render(<App />);
-    const linkElement = screen.getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
+    render(<Counter count={ 1 }/>);
+    const text = screen.getByText(/Count/i);
+    expect(text).toBeInTheDocument();
   });
 });
