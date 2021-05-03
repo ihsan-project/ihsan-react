@@ -1,18 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import './App.css';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Button } from '@material-ui/core';
 
-import Login from './containers/Login'
+import Login from './Login'
 
-import { store } from './libs/store';
-
-const App = () => {
-  const globalState = useContext(store);
-
-  return (
+const App = () => (
     <>
       <AppBar position="static">
         <Toolbar>
@@ -22,6 +17,5 @@ const App = () => {
       <Login />
     </>
   );
-}
 
 export default App;

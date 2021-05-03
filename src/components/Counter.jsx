@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
-import { store } from '../libs/store';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Counter = (props) => {
-  const globalState = useContext(store);
+  const { count } = props;
 
   return (
     <div>
-      Count {props.count}
+      Count {count}
     </div>
   );
 }
+
+
+Counter.propTypes = {
+  count: PropTypes.number.isRequired
+};
 
 export default Counter;

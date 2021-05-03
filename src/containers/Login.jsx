@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
-import Counter from '../components/Counter'
 import { Button } from '@material-ui/core';
+
+import Counter from '../components/Counter'
 import { store } from '../libs/store';
 
-const Login = (props) => {
+const Login = () => {
   /*
    * count is our state variable
    * count will have a default state of 0
@@ -19,7 +20,7 @@ const Login = (props) => {
   return (
     <>
       <div>
-        Hello {props.name}
+        Hello!
       </div>
       <Counter count={ count }/>
       <Button onClick={ () => {
