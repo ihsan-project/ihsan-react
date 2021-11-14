@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App';
 import reportWebVitals from './reportWebVitals';
-import { StateProvider } from './libs/store';
+import { Provider as LoadingProvider } from './contexts/loadingContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StateProvider>
+    <LoadingProvider>
       <App />
-    </StateProvider>
+    </LoadingProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
